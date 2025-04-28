@@ -15,7 +15,7 @@ Nesse arquivo adicione as variavéis:
 Pelo terminal, rode docker-compose up -d --build 'minio'. Ou clique com o botão direito sobre o docker-compose.yaml e selecione o service do minio
 
 #### 4) Cria senhas de acesso no minio
-Ao subir o serviço, logue com o user "pipeline" e a senha "pipelinegov" e cria uma Acess Key e um Secret Key. Adicione essas variaveis no .env
+Ao subir o serviço, logue em localhost:9001/login com o user "pipeline" e a senha "pipelinegov" e cria uma Acess Key e um Secret Key. Adicione essas variaveis no .env
 
 #### 5) Suba o Airflow init
 Pelo terminal, rode docker-compose up -d --build 'airflow-init'. Ou clique com o botão direito sobre o docker-compose.yaml e selecione o service do airflow-init
@@ -24,6 +24,7 @@ Pelo terminal, rode docker-compose up -d --build 'airflow-init'. Ou clique com o
 Pelo terminal, rode docker-compose up -d --build. Ou clique com o botão direito sobre o docker-compose.yaml e selecione compose up
 
 #### 7) Rode a Dag
+Logue em localhost:8080 com o user airflow e a senha airflow
 Selecione a dag extract_enem_data e rode-a
 Obs: Por default, deixei o schedule de 10 em 10 minutos comentado por conta do tamanho dos arquivos do gov. Para definir o Schedule, basta descomentar a linha 2o do arquivo airflow/dags/extract.py e comentar a linha 21
 
