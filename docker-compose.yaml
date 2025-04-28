@@ -12,8 +12,9 @@ x-airflow-common:
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
     AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
-    AIRFLOW_VAR_PIPELINE_ENEM_URL: 'https://download.inep.gov.br/microdados/microdados_enem_year.zip'
-    AIRFLOW_VAR_PIPELINE_CENSO_URL: 'https://download.inep.gov.br/dados_abertos/microdados_censo_escolar_year.zip'
+    AIRFLOW_VAR_PIPELINE_ENEM_URL: ${PIPELINE_ENEM_URL}
+    AIRFLOW_VAR_MINIO_ACESS_KEY: ${MINIO_ACESS_KEY}
+    AIRFLOW_VAR_MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
     AIRFLOW_CONN_DB_ETL: '{
         "conn_type": "postgres",
         "login": "pipeline",

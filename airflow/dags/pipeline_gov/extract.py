@@ -12,6 +12,8 @@ import io
 from datetime import datetime
 
 PIPELINE_ENEM_URL = Variable.get("PIPELINE_ENEM_URL")
+MINIO_ACESS_KEY = Variable.get("MINIO_ACESS_KEY")
+MINIO_SECRET_KEY = Variable.get("MINIO_SECRET_KEY")
 
 @dag(
     dag_id="extract_enem_data",
@@ -28,8 +30,8 @@ def main():
 
         client = Minio(
             endpoint="minio:9000",
-            access_key="AgMyHDOsEt9L4GRkMbKn",
-            secret_key="cDa8jGXK7WEKDffmmuR2IzODPSGkuJ4ZJyiC4snc",
+            access_key=MINIO_ACESS_KEY,
+            secret_key=MINIO_SECRET_KEY,
             secure=False
         )
 
@@ -51,7 +53,6 @@ def main():
 
     @task(task_id="extract")
     def extract_from_gov(year: str)->None:
-        year = "2016"
         while True:
             try:
                 response = requests.get(url=PIPELINE_ENEM_URL.replace("year", year), stream=True) 
@@ -68,8 +69,8 @@ def main():
         
         client = Minio(
             endpoint="minio:9000",
-            access_key="AgMyHDOsEt9L4GRkMbKn",
-            secret_key="cDa8jGXK7WEKDffmmuR2IzODPSGkuJ4ZJyiC4snc",
+            access_key=MINIO_ACESS_KEY,
+            secret_key=MINIO_SECRET_KEY,
             secure=False
         )
 
