@@ -64,7 +64,7 @@ def main():
         arqZip = zipfile.ZipFile(io.BytesIO(response.content))
         
         for nameFile in arqZip.namelist():
-            if nameFile.endswith(f"MICRODADOS_ENEM_{year}.csv"): 
+            if nameFile.endswith(f"MICRODADOS_ENEM_{year}.csv"):
                 break
         
         client = Minio(
